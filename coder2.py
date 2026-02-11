@@ -1,4 +1,8 @@
 import pandas as pd
+from features import build_features
+
+features = build_features()
+print("Feature table created")
 
 LOG_FILE = "api_logs_simulated.csv"   
 
