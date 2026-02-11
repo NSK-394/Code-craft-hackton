@@ -40,9 +40,9 @@ def generate_normal_log(api_key):
         "endpoint": random.choice(ENDPOINTS_NORMAL),
         "status": random.choices(
             ["SUCCESS", "FAIL"],
-            weights=[0.96, 0.04]
+            weights=[0.9, 0.1]
         )[0],
-        "response_time_ms": random.randint(120, 450),
+        "response_time_ms": random.randint(80, 450),
         "traffic_type": "NORMAL"
     }
 
@@ -56,7 +56,7 @@ def generate_bot_log(api_key, burst_base, bot_ip_subset):
         "endpoint": endpoint,
         "status": random.choices(
             ["SUCCESS", "FAIL"],
-            weights=[0.65, 0.35]
+            weights=[0.8, 0.2]
         )[0],
         "response_time_ms": random.randint(40, 160),
         "traffic_type": "BOT"
