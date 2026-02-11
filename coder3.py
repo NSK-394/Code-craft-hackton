@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.ensemble import IsolationForest
+from sklearn.covariance import EllipticEnvelope
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import joblib
@@ -48,8 +48,7 @@ estimated_contamination = max(
 print("Estimated contamination:", estimated_contamination)
 
 # ---------- build model ----------
-model = IsolationForest(
-    n_estimators=200,
+model = EllipticEnvelope(
     contamination=estimated_contamination,
     random_state=42
 )
@@ -104,7 +103,7 @@ plt.show()
 
 df.to_csv("api_behavior_with_anomaly.csv", index=False)
 
-joblib.dump(model, "isolation_forest_model.pkl")
+joblib.dump(model, "elliptic_model.pkl")
 joblib.dump(scaler, "feature_scaler.pkl")
 
 
